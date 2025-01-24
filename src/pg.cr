@@ -1,7 +1,23 @@
-require "pg/result_set"
-require "pg/interval"
+require "db"
+require "pg"
 
 require "./duration"
+
+struct Duration
+  def to_postgres
+    String.build { |str| to_postgres str }
+  end
+
+  def to_postgres(io) : Nil
+    if empty?
+      io << "0 seconds"
+    else
+      io << months << " months " if months > 0
+      io << days << " days " if days > 0
+      io << microseconds << " microseconds" if nanoseconds >= 1_000
+    end
+  end
+end
 
 module PG
   struct Interval
