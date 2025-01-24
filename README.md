@@ -72,6 +72,25 @@ Time math is also supported:
 Time.utc + Duration.new(years: 1, months: 4, weeks: 6, days: 3, hours: 12, minutes: 34, seconds: 56)
 ```
 
+### Using with Postgres
+
+You can also decode `Duration` instances from Postgres directly. Let's say you have a model for subscriptions, which can have variable durations:
+
+```crystal
+# Load the Postgres integration
+require "duration/pg"
+
+struct Subscription
+  include DB::Serializable
+
+  getter id : UUID
+  # Using a Duration type defined by this shard.
+  getter duration : Duration
+end
+```
+
+Now we can query our table and return `Duration` instances without a `@[DB::Field]` annotation with a `converter`.
+
 ## Contributing
 
 1. Fork it (<https://github.com/jgaskins/duration/fork>)
