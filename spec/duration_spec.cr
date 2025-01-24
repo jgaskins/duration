@@ -1,7 +1,8 @@
 require "./spec_helper"
 
 describe Duration do
-  # Just to have a single
+  # Just to have a single place we're loading from. It's too tedious to keep
+  # writing this.
   eastern = Time::Location.load("America/New_York")
 
   it "measures nanoseconds" do
