@@ -27,13 +27,17 @@ struct Duration
     hours : Int64 = 0i64,
     minutes : Int64 = 0i64,
     seconds : Int64 = 0i64,
+    milliseconds : Int64 = 0i64,
+    microseconds : Int64 = 0i64,
     @nanoseconds = 0i64,
   )
     @months += years * 12
     @days += weeks * 7
     minutes += hours * 60
     seconds += minutes * 60
-    @nanoseconds += seconds * 1_000_000_000
+    milliseconds += seconds * 1_000
+    microseconds += milliseconds * 1_000
+    @nanoseconds += microseconds * 1_000
   end
 
   def hours : Float64
@@ -46,6 +50,14 @@ struct Duration
 
   def seconds : Float64
     nanoseconds / 1_000_000_000
+  end
+
+  def milliseconds : Float64
+    nanoseconds / 1_000_000
+  end
+
+  def microseconds : Float64
+    nanoseconds / 1_000
   end
 
   def weeks : Float64

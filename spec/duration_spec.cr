@@ -10,6 +10,14 @@ describe Duration do
     Duration.new(seconds: 123).nanoseconds.should eq 123_000_000_000
   end
 
+  it "measures microseconds" do
+    Duration.new(microseconds: 123).microseconds.should eq 123
+  end
+
+  it "measures milliseconds" do
+    Duration.new(milliseconds: 123).milliseconds.should eq 123
+  end
+
   it "measures seconds" do
     Duration.new(seconds: 123).seconds.should eq 123
     Duration.new(minutes: 123).seconds.should eq 123 * 60
