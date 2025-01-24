@@ -72,12 +72,20 @@ struct Duration
     months.zero? && days.zero? && nanoseconds.zero?
   end
 
+  def +(other : Time::Span | Time::MonthSpan) : self
+    self + other.to_duration
+  end
+
   def +(other : self) : self
     self.class.new(
       months: months + other.months,
       days: days + other.days,
       nanoseconds: nanoseconds + other.nanoseconds,
     )
+  end
+
+  def -(other : Time::Span | Time::MonthSpan) : self
+    self - other.to_duration
   end
 
   def -(other : self) : self

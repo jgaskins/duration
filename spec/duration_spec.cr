@@ -106,6 +106,24 @@ describe Duration do
     end
   end
 
+  describe "math with Time::Span and Time::MonthSpan" do
+    it "adds Duration + Time::Span" do
+      (1.hour.to_duration + 1.hour).should eq 2.hours.to_duration
+    end
+
+    it "adds Duration + Time::MonthSpan" do
+      (1.year.to_duration + 1.year).should eq 2.years.to_duration
+    end
+
+    it "subtracts Duration - Time::Span" do
+      (2.hours.to_duration - 1.hour).should eq 1.hour.to_duration
+    end
+
+    it "subtracts Duration - Time::MonthSpan" do
+      (2.years.to_duration - 1.year).should eq 1.year.to_duration
+    end
+  end
+
   describe "math with Time instances" do
     # DST starts at 2am on this date
     time = Time.local(2025, 3, 9, location: eastern)
