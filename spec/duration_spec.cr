@@ -51,6 +51,13 @@ describe Duration do
     Duration.new(years: 123).years.should eq 123
   end
 
+  it "indicates a zero duration" do
+    Duration.new.zero?.should eq true
+    Duration.new(nanoseconds: 1).zero?.should eq false
+    Duration.new(days: 1).zero?.should eq false
+    Duration.new(months: 1).zero?.should eq false
+  end
+
   it "returns a time this far in the future" do
     timestamp = Time.local(2025, 1, 21, location: eastern)
 

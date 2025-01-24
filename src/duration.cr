@@ -68,6 +68,10 @@ struct Duration
     months / 12
   end
 
+  def zero?
+    months.zero? && days.zero? && nanoseconds.zero?
+  end
+
   def +(other : self) : self
     self.class.new(
       months: months + other.months,
