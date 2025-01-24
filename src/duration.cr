@@ -136,12 +136,28 @@ struct Time
 end
 
 struct Int
+  def calendar_week
+    calendar_weeks
+  end
+
+  def calendar_weeks
+    (7 * self).calendar_days
+  end
+
   def calendar_day
     calendar_days
   end
 
   def calendar_days
     Duration.new(days: to_i32)
+  end
+
+  def calendar_year
+    calendar_years
+  end
+
+  def calendar_years
+    (12 * self).calendar_months
   end
 
   def calendar_month
