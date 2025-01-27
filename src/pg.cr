@@ -9,7 +9,7 @@ struct Duration
   end
 
   def to_postgres(io) : Nil
-    if empty?
+    if zero?
       io << "0 seconds"
     else
       io << months << " months " if months > 0
