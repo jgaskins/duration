@@ -22,6 +22,7 @@ describe Duration do
     Duration.new(seconds: 123).seconds.should eq 123
     Duration.new(minutes: 123).seconds.should eq 123 * 60
     Duration.new(hours: 123).seconds.should eq 123 * 60 * 60
+    Duration.new(milliseconds: 15_500).seconds.should eq 15.5
   end
 
   it "measures minutes" do
@@ -30,6 +31,7 @@ describe Duration do
 
   it "measures hours" do
     Duration.new(hours: 3).hours.should eq 3
+    Duration.new(hours: 3, minutes: 30).hours.should eq 3.5
   end
 
   it "measures days" do
@@ -113,6 +115,12 @@ describe Duration do
 
     it "adds Duration + Time::MonthSpan" do
       (1.year.to_duration + 1.year).should eq 2.years.to_duration
+
+      (Duration.new(years: 1) + 1.month + 1.hour).should eq Duration.new(
+        years: 1,
+        months: 1,
+        hours: 1,
+      )
     end
 
     it "subtracts Duration - Time::Span" do
@@ -171,6 +179,11 @@ describe Duration do
 
     it "converts to a Time::Span excluding calendar days" do
       Duration.new(days: 1, hours: 1).to_span.should eq 1.hour
+    end
+
+    it "can include an estimate of the monotonic time using calendar days" do
+      Duration.new(days: 1, hours: 1).to_span(include_days: true)
+        .should eq 25.hours
     end
 
     it "converts to a Time::MonthSpan" do

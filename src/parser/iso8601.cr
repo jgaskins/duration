@@ -1,4 +1,13 @@
 struct Duration
+  # The `ISO8601` parser is an incredibly efficient, zero-allocation [ISO8601
+  # duration](https://en.wikipedia.org/wiki/ISO_8601#Durations) parser. It
+  # parses strings like `"P3Y6M4DT12H30M5S"` into `Duration` instances.
+  #
+  # ```
+  # # 3 years, 6 months, 4 days, 12 hours, 30 minutes, 5.5 seconds
+  # Duration.parse_iso8601("P3Y6M4DT12H30M5.5S")
+  # # => Duration(@months=42, @days=4, @nanoseconds=45005500000000)
+  # ```
   struct Parser::ISO8601
     def parse(string : String)
       in_time = false
@@ -11,7 +20,7 @@ struct Duration
       seconds = 0i64
       nanoseconds = 0i64
 
-      # Numeric accumulator variables.
+      # Accumulators
       var : Int64 = 0_i64      # accumulates the integer part
       fraction : Float64 = 0.0 # accumulates the fractional part, if any
       in_fraction = false      # flag to indicate we are parsing the fraction part
@@ -85,7 +94,7 @@ struct Duration
             raise ArgumentError.new("Invalid ISO8601 duration: fractional hours not allowed")
           end
           hours = var
-            var = 0; fraction = 0.0; in_fraction = false; fraction_div = 1.0
+          var = 0; fraction = 0.0; in_fraction = false; fraction_div = 1.0
         when 'S'
           # Seconds may be fractional.
           tot = var.to_f64 + fraction
