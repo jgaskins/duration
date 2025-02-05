@@ -16,8 +16,8 @@ require "benchmark"
 
 sql = <<-SQL
   SELECT
-    gen_random_uuid() id,
-    interval '1 month' duration
+    gen_random_uuid() AS id,
+    '1 month'::interval AS duration
   FROM generate_series(1, 2)
   SQL
 

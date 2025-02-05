@@ -66,6 +66,15 @@ You can also convert the monotonic portion of a `Duration` instance to a `Time::
 span = Duration.new(hours: 3).to_span
 ```
 
+> [!IMPORTANT]
+> Only the monotonic portion (the value returned by `nanoseconds`) is used in this conversion. `Time::Span` does not have a way to measure calendar days. If you would like to consider calendar days as 24-hour increments, you will need to pass `include_days: true`. Days are not included by default because they are not guaranteed to be 24 hours, for example across DST boundaries.
+
+```crystal
+duration = Duration.new(days: 2, hours: 3)
+
+span = duration.to_span(include_days: true)
+```
+
 Time math is also supported:
 
 ```crystal
@@ -90,6 +99,24 @@ end
 ```
 
 Now we can query our table and return `Duration` instances without a `@[DB::Field]` annotation with a `converter`.
+
+```crystal
+# Connect to Postgres
+pg = DB.open("postgres:///")
+
+# Return a result set with a UUID and an INTERVAL type
+sql = <<-SQL
+  SELECT
+    gen_random_uuid() AS id,
+    '1 month'::interval AS duration
+  FROM generate_series(1, 2)
+  SQL
+
+# When we iterate over our results, we'll get our Subscription struct above.
+pg.query_each sql do |rs|
+  pp Subscription.new rs
+end
+```
 
 ## Contributing
 
