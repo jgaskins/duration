@@ -129,7 +129,7 @@ struct Duration
   end
 
   def to_span
-    days.days + nanoseconds.nanoseconds
+    nanoseconds.nanoseconds
   end
 
   def to_month_span

@@ -165,12 +165,12 @@ describe Duration do
   end
 
   describe "conversion to Crystal stdlib spans" do
-    it "converts to a Time::Span" do
+    it "converts the monotonic portion to a Time::Span" do
       Duration.new(1.hour).to_span.should eq 1.hour
     end
 
-    it "converts to a Time::Span including days" do
-      Duration.new(1.day + 1.hour).to_span.should eq 1.day + 1.hour
+    it "converts to a Time::Span excluding calendar days" do
+      Duration.new(days: 1, hours: 1).to_span.should eq 1.hour
     end
 
     it "converts to a Time::MonthSpan" do
