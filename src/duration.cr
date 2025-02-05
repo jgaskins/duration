@@ -1,3 +1,5 @@
+require "./parser/iso8601"
+
 # TODO: Write documentation for `Duration`
 struct Duration
   VERSION = "0.1.0"
@@ -16,6 +18,10 @@ struct Duration
 
   def self.new(month_span : Time::MonthSpan, span : Time::Span)
     new(month_span) + new(span)
+  end
+
+  def self.parse_iso8601(string : String)
+    Parser::ISO8601.new.parse string
   end
 
   def initialize(

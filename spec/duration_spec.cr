@@ -177,6 +177,28 @@ describe Duration do
       Duration.new(1.year).to_month_span.should eq 1.year
     end
   end
+
+  describe "parsing from ISO8601 strings" do
+    {
+      "PT0.001192S"      => Duration.new(microseconds: 1192),
+      "P23DT23H"         => Duration.new(days: 23, hours: 23),
+      "P4Y"              => Duration.new(years: 4),
+      "PT0.5S"           => Duration.new(milliseconds: 500),
+      "P1DT12H"          => Duration.new(days: 1, hours: 12),
+      "P3Y6M4DT12H30M5S" => Duration.new(
+        years: 3,
+        months: 6,
+        days: 4,
+        hours: 12,
+        minutes: 30,
+        seconds: 5,
+      ),
+    }.each do |string, duration|
+      it "parses #{string} as #{duration}" do
+        Duration.parse_iso8601(string).should eq duration
+      end
+    end
+  end
 end
 
 def be_within(epsilon, of value)
