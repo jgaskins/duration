@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.10.1">
+<meta name="crystal_docs.project_version" content="main-dev">
+<meta name="crystal_docs.project_name" content="duration">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="duration">
+  <title>Duration - duration main-dev</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          duration
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main-dev
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="duration/Duration" data-name="duration">
+      <a href="Duration.html">Duration</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="duration/Duration/Parser" data-name="duration::parser">
+      <a href="Duration/Parser.html">Parser</a>
+      
+        <ul>
+  
+  <li class=" " data-id="duration/Duration/Parser/ISO8601" data-name="duration::parser::iso8601">
+      <a href="Duration/Parser/ISO8601.html">ISO8601</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="duration/Int" data-name="int">
+      <a href="Int.html">Int</a>
+      
+    </li>
+  
+  <li class="parent " data-id="duration/PG" data-name="pg">
+      <a href="PG.html">PG</a>
+      
+        <ul>
+  
+  <li class=" " data-id="duration/PG/Interval" data-name="pg::interval">
+      <a href="PG/Interval.html">Interval</a>
+      
+    </li>
+  
+  <li class=" " data-id="duration/PG/ResultSet" data-name="pg::resultset">
+      <a href="PG/ResultSet.html">ResultSet</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="duration/Time" data-name="time">
+      <a href="Time.html">Time</a>
+      
+        <ul>
+  
+  <li class=" " data-id="duration/Time/MonthSpan" data-name="time::monthspan">
+      <a href="Time/MonthSpan.html">MonthSpan</a>
+      
+    </li>
+  
+  <li class=" " data-id="duration/Time/Span" data-name="time::span">
+      <a href="Time/Span.html">Span</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">struct</span> Duration
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Duration.html">Duration</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>The <code><a href="Duration.html">Duration</a></code> type represents calendar months, calendar days, and monotonic
+time spans, allowing for more precise temporal math.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      duration.cr
+    
+    <br/>
+  
+    
+      parser/iso8601.cr
+    
+    <br/>
+  
+    
+      pg.cr
+    
+    <br/>
+  
+
+
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="VERSION">
+        <strong>VERSION</strong> = <code><span class="s">&quot;0.1.0&quot;</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28month_span%3ATime%3A%3AMonthSpan%2Cspan%3ATime%3A%3ASpan%29-class-method" class="signature"><strong>.new</strong>(month_span : Time::MonthSpan, span : Time::Span)</a>
+        
+          <div class="summary"><p>Instantiate a <code><a href="Duration.html">Duration</a></code> from both a <code><a href="Time/MonthSpan.html">Time::MonthSpan</a></code> and a <code><a href="Time/Span.html">Time::Span</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28span%3ATime%3A%3ASpan%29-class-method" class="signature"><strong>.new</strong>(span : Time::Span)</a>
+        
+          <div class="summary"><p>Instantiate a <code><a href="Duration.html">Duration</a></code> from a <code><a href="Time/Span.html">Time::Span</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28month_span%3ATime%3A%3AMonthSpan%29-class-method" class="signature"><strong>.new</strong>(month_span : Time::MonthSpan)</a>
+        
+          <div class="summary"><p>Instantiate a <code><a href="Duration.html">Duration</a></code> from a <code><a href="Time/MonthSpan.html">Time::MonthSpan</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28%2A%2Cyears%3AInt32%3D0%2Cmonths%3AInt32%3D0%2Cweeks%3AInt64%3D0%2Cdays%3AInt32%3D0%2Chours%3AInt64%3D0_i64%2Cminutes%3AInt64%3D0_i64%2Cseconds%3AInt64%3D0_i64%2Cmilliseconds%3AInt64%3D0_i64%2Cmicroseconds%3AInt64%3D0_i64%2Cnanoseconds%3AInt64%3D0_i64%29-class-method" class="signature"><strong>.new</strong>(*, years : Int32 = <span class="n">0</span>, months : Int32 = <span class="n">0</span>, weeks : Int64 = <span class="n">0</span>, days : Int32 = <span class="n">0</span>, hours : Int64 = <span class="n">0_i64</span>, minutes : Int64 = <span class="n">0_i64</span>, seconds : Int64 = <span class="n">0_i64</span>, milliseconds : Int64 = <span class="n">0_i64</span>, microseconds : Int64 = <span class="n">0_i64</span>, nanoseconds : Int64 = <span class="n">0_i64</span>)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#parse_iso8601%28string%3AString%29-class-method" class="signature"><strong>.parse_iso8601</strong>(string : String)</a>
+        
+          <div class="summary"><p>Parse <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO8601 duration strings</a>  like <code>&quot;P3Y6M4DT12H30M5S&quot;</code> into <code><a href="Duration.html">Duration</a></code> instances.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#%2A%28factor%3AInt%29%3Aself-instance-method" class="signature"><strong>#*</strong>(factor : Int) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Multiplies this <code><a href="Duration.html">Duration</a></code> by the given factor.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%2B%28other%3ATime%3A%3ASpan%7CTime%3A%3AMonthSpan%29%3Aself-instance-method" class="signature"><strong>#+</strong>(other : Time::Span | Time::MonthSpan) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Add a <code><a href="Time/Span.html">Time::Span</a></code> a <code><a href="Time/MonthSpan.html">Time::MonthSpan</a></code> from the crystal standard library to this <code><a href="Duration.html">Duration</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%2B%28other%3Aself%29%3Aself-instance-method" class="signature"><strong>#+</strong>(other : <span class="k">self</span>) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Returns the sum of two <code><a href="Duration.html">Duration</a></code> instances.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#-%28other%3ATime%3A%3ASpan%7CTime%3A%3AMonthSpan%29%3Aself-instance-method" class="signature"><strong>#-</strong>(other : Time::Span | Time::MonthSpan) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Subtract a <code><a href="Time/Span.html">Time::Span</a></code> or <code><a href="Time/MonthSpan.html">Time::MonthSpan</a></code> (from the crystal standard library) to this <code><a href="Duration.html">Duration</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#-%28other%3Aself%29%3Aself-instance-method" class="signature"><strong>#-</strong>(other : <span class="k">self</span>) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Returns the difference between two <code><a href="Duration.html">Duration</a></code> instances.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#//%28factor%3AInt%29%3Aself-instance-method" class="signature"><strong>#//</strong>(factor : Int) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Divides this <code>Durtation</code> by the given scalar.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ago%28location%3DTime%3A%3ALocation.local%29-instance-method" class="signature"><strong>#ago</strong>(location = <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.local)</a>
+        
+          <div class="summary"><p>Returns the time that this <code><a href="Duration.html">Duration</a></code> represents before the current local time.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#before%28time%3ATime%29-instance-method" class="signature"><strong>#before</strong>(time : Time)</a>
+        
+          <div class="summary"><p>Returns the time that this <code><a href="Duration.html">Duration</a></code> represents before the given time.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#days%3AInt32-instance-method" class="signature"><strong>#days</strong> : Int32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#from%28time%3ATime%29-instance-method" class="signature"><strong>#from</strong>(time : Time)</a>
+        
+          <div class="summary"><p>Returns the time that this <code><a href="Duration.html">Duration</a></code> represents from the given time.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#from_now%28location%3DTime%3A%3ALocation.local%29-instance-method" class="signature"><strong>#from_now</strong>(location = <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.local)</a>
+        
+          <div class="summary"><p>Returns the time that this <code><a href="Duration.html">Duration</a></code> represents from the current local time.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#hours%3AFloat64-instance-method" class="signature"><strong>#hours</strong> : Float64</a>
+        
+          <div class="summary"><p>Returns monotonic hours, including the fractional part.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#microseconds%3AFloat64-instance-method" class="signature"><strong>#microseconds</strong> : Float64</a>
+        
+          <div class="summary"><p>Returns monotonic microseconds, including the fractional part.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#milliseconds%3AFloat64-instance-method" class="signature"><strong>#milliseconds</strong> : Float64</a>
+        
+          <div class="summary"><p>Returns monotonic milliseconds, including the fractional part.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#minutes%3AFloat64-instance-method" class="signature"><strong>#minutes</strong> : Float64</a>
+        
+          <div class="summary"><p>Returns monotonic minutes, including the fractional part.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#months%3AInt32-instance-method" class="signature"><strong>#months</strong> : Int32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#nanoseconds%3AInt64-instance-method" class="signature"><strong>#nanoseconds</strong> : Int64</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#seconds%3AFloat64-instance-method" class="signature"><strong>#seconds</strong> : Float64</a>
+        
+          <div class="summary"><p>Returns monotonic seconds, including the fractional part.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_month_span-instance-method" class="signature"><strong>#to_month_span</strong></a>
+        
+          <div class="summary"><p>Return the month portion of this <code><a href="Duration.html">Duration</a></code> as a Crystal stdlib <code><a href="Time/MonthSpan.html">Time::MonthSpan</a></code> instance.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_postgres%28io%29%3ANil-instance-method" class="signature"><strong>#to_postgres</strong>(io) : Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_postgres-instance-method" class="signature"><strong>#to_postgres</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_span%28include_days%3Dfalse%29-instance-method" class="signature"><strong>#to_span</strong>(include_days = <span class="n">false</span>)</a>
+        
+          <div class="summary"><p>Return the monotonic portion of this <code><a href="Duration.html">Duration</a></code> as a Crystal stdlib <code><a href="Time/Span.html">Time::Span</a></code> instance.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#weeks%3AFloat64-instance-method" class="signature"><strong>#weeks</strong> : Float64</a>
+        
+          <div class="summary"><p>Returns the number of calendar weeks represented by this <code><a href="Duration.html">Duration</a></code>, including the fractional part</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#years%3AFloat64-instance-method" class="signature"><strong>#years</strong> : Float64</a>
+        
+          <div class="summary"><p>Returns the number of calendar years represented by this <code><a href="Duration.html">Duration</a></code>, including the fractional part</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#zero%3F-instance-method" class="signature"><strong>#zero?</strong></a>
+        
+          <div class="summary"><p>Returns <code>true</code> if this <code><a href="Duration.html">Duration</a></code> does not measure any time at all, <code>false</code> otherwise.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(month_span:Time::MonthSpan,span:Time::Span)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(month_span : <a href="Time/MonthSpan.html">Time::MonthSpan</a>, span : <a href="Time/Span.html">Time::Span</a>)
+
+        <a class="method-permalink" href="#new%28month_span%3ATime%3A%3AMonthSpan%2Cspan%3ATime%3A%3ASpan%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Instantiate a <code><a href="Duration.html">Duration</a></code> from both a <code><a href="Time/MonthSpan.html">Time::MonthSpan</a></code> and a <code><a href="Time/Span.html">Time::Span</a></code>.</p>
+<pre><code class="language-crystal"><span class="t">Duration</span>.new(<span class="n">5</span>.seconds)
+<span class="c"># =&gt; Duration(@months=0, @days=0, @nanoseconds=5000000000)</span></code></pre>
+<p><span class="flag purple">NOTE</span>  While you can get months and monotonic time, there is no way to get
+calendar days from this constructor.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(span:Time::Span)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(span : <a href="Time/Span.html">Time::Span</a>)
+
+        <a class="method-permalink" href="#new%28span%3ATime%3A%3ASpan%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Instantiate a <code><a href="Duration.html">Duration</a></code> from a <code><a href="Time/Span.html">Time::Span</a></code>.</p>
+<pre><code class="language-crystal"><span class="t">Duration</span>.new(<span class="n">5</span>.seconds)
+<span class="c"># =&gt; Duration(@months=0, @days=0, @nanoseconds=5000000000)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(month_span:Time::MonthSpan)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(month_span : <a href="Time/MonthSpan.html">Time::MonthSpan</a>)
+
+        <a class="method-permalink" href="#new%28month_span%3ATime%3A%3AMonthSpan%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Instantiate a <code><a href="Duration.html">Duration</a></code> from a <code><a href="Time/MonthSpan.html">Time::MonthSpan</a></code>.</p>
+<pre><code class="language-crystal"><span class="t">Duration</span>.new(<span class="n">6</span>.months)
+<span class="c"># =&gt; Duration(@months=6, @days=0, @nanoseconds=0)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(*,years:Int32=0,months:Int32=0,weeks:Int64=0,days:Int32=0,hours:Int64=0_i64,minutes:Int64=0_i64,seconds:Int64=0_i64,milliseconds:Int64=0_i64,microseconds:Int64=0_i64,nanoseconds:Int64=0_i64)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(*, years : Int32 = <span class="n">0</span>, months : Int32 = <span class="n">0</span>, weeks : Int64 = <span class="n">0</span>, days : Int32 = <span class="n">0</span>, hours : Int64 = <span class="n">0_i64</span>, minutes : Int64 = <span class="n">0_i64</span>, seconds : Int64 = <span class="n">0_i64</span>, milliseconds : Int64 = <span class="n">0_i64</span>, microseconds : Int64 = <span class="n">0_i64</span>, nanoseconds : Int64 = <span class="n">0_i64</span>)
+
+        <a class="method-permalink" href="#new%28%2A%2Cyears%3AInt32%3D0%2Cmonths%3AInt32%3D0%2Cweeks%3AInt64%3D0%2Cdays%3AInt32%3D0%2Chours%3AInt64%3D0_i64%2Cminutes%3AInt64%3D0_i64%2Cseconds%3AInt64%3D0_i64%2Cmilliseconds%3AInt64%3D0_i64%2Cmicroseconds%3AInt64%3D0_i64%2Cnanoseconds%3AInt64%3D0_i64%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="parse_iso8601(string:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>parse_iso8601</strong>(string : String)
+
+        <a class="method-permalink" href="#parse_iso8601%28string%3AString%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Parse <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO8601 duration strings</a>
+like <code>&quot;P3Y6M4DT12H30M5S&quot;</code> into <code><a href="Duration.html">Duration</a></code> instances.</p>
+<pre><code class="language-crystal"><span class="c"># 3 years, 6 months, 4 days, 12 hours, 30 minutes, 5.5 seconds</span>
+<span class="t">Duration</span>.parse_iso8601(<span class="s">&quot;P3Y6M4DT12H30M5.5S&quot;</span>)
+<span class="c"># =&gt; Duration(@months=42, @days=4, @nanoseconds=45005500000000)</span></code></pre>
+<p>The parser is incredibly efficient and performs no heap allocations.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="*(factor:Int):self-instance-method">
+      <div class="signature">
+        
+        def <strong>*</strong>(factor : <a href="Int.html">Int</a>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#%2A%28factor%3AInt%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Multiplies this <code><a href="Duration.html">Duration</a></code> by the given factor.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="+(other:Time::Span|Time::MonthSpan):self-instance-method">
+      <div class="signature">
+        
+        def <strong>+</strong>(other : <a href="Time/Span.html">Time::Span</a> | <a href="Time/MonthSpan.html">Time::MonthSpan</a>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#%2B%28other%3ATime%3A%3ASpan%7CTime%3A%3AMonthSpan%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Add a <code><a href="Time/Span.html">Time::Span</a></code> a <code><a href="Time/MonthSpan.html">Time::MonthSpan</a></code> from the crystal standard library to this <code><a href="Duration.html">Duration</a></code>. The <code><a href="Time/Span.html">Time::Span</a></code> will be added to the monotonic portion of this <code><a href="Duration.html">Duration</a></code> and the <code><a href="Time/MonthSpan.html">Time::MonthSpan</a></code> will be added to the <code><a href="Duration.html#months%3AInt32-instance-method">#months</a></code> portion.</p>
+<pre><code class="language-crystal"><span class="t">Duration</span>.new(years: <span class="n">1</span>) <span class="o">+</span> <span class="n">1</span>.month <span class="o">+</span> <span class="n">1</span>.hour
+<span class="c"># =&gt; Duration(@months=13, @days=0, @nanoseconds=3600000000000)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="+(other:self):self-instance-method">
+      <div class="signature">
+        
+        def <strong>+</strong>(other : <span class="k">self</span>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#%2B%28other%3Aself%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the sum of two <code><a href="Duration.html">Duration</a></code> instances.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="-(other:Time::Span|Time::MonthSpan):self-instance-method">
+      <div class="signature">
+        
+        def <strong>-</strong>(other : <a href="Time/Span.html">Time::Span</a> | <a href="Time/MonthSpan.html">Time::MonthSpan</a>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#-%28other%3ATime%3A%3ASpan%7CTime%3A%3AMonthSpan%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Subtract a <code><a href="Time/Span.html">Time::Span</a></code> or <code><a href="Time/MonthSpan.html">Time::MonthSpan</a></code> (from the crystal standard
+library) to this <code><a href="Duration.html">Duration</a></code>. The <code><a href="Time/Span.html">Time::Span</a></code> will be subtracted from the
+monotonic portion of this <code><a href="Duration.html">Duration</a></code> and the <code><a href="Time/MonthSpan.html">Time::MonthSpan</a></code> will be
+subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method">#months</a></code> portion.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="-(other:self):self-instance-method">
+      <div class="signature">
+        
+        def <strong>-</strong>(other : <span class="k">self</span>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#-%28other%3Aself%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the difference between two <code><a href="Duration.html">Duration</a></code> instances.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="//(factor:Int):self-instance-method">
+      <div class="signature">
+        
+        def <strong>//</strong>(factor : <a href="Int.html">Int</a>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#//%28factor%3AInt%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Divides this <code>Durtation</code> by the given scalar. Note that only integer division is supported.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ago(location=Time::Location.local)-instance-method">
+      <div class="signature">
+        
+        def <strong>ago</strong>(location = <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.local)
+
+        <a class="method-permalink" href="#ago%28location%3DTime%3A%3ALocation.local%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the time that this <code><a href="Duration.html">Duration</a></code> represents before the current local time.</p>
+<pre><code class="language-crystal"><span class="n">1</span>.calendar_day.ago</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="before(time:Time)-instance-method">
+      <div class="signature">
+        
+        def <strong>before</strong>(time : <a href="Time.html">Time</a>)
+
+        <a class="method-permalink" href="#before%28time%3ATime%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the time that this <code><a href="Duration.html">Duration</a></code> represents before the given time.</p>
+<pre><code class="language-crystal">previous_run <span class="o">=</span> <span class="n">1</span>.calendar_day.before(next_scheduled_run)</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="days:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>days</strong> : Int32
+
+        <a class="method-permalink" href="#days%3AInt32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="from(time:Time)-instance-method">
+      <div class="signature">
+        
+        def <strong>from</strong>(time : <a href="Time.html">Time</a>)
+
+        <a class="method-permalink" href="#from%28time%3ATime%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the time that this <code><a href="Duration.html">Duration</a></code> represents from the given time.</p>
+<pre><code class="language-crystal">next_bill_at <span class="o">=</span> <span class="n">1</span>.calendar_month.from(subscription.last_billed_at)</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="from_now(location=Time::Location.local)-instance-method">
+      <div class="signature">
+        
+        def <strong>from_now</strong>(location = <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.local)
+
+        <a class="method-permalink" href="#from_now%28location%3DTime%3A%3ALocation.local%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the time that this <code><a href="Duration.html">Duration</a></code> represents from the current local time.</p>
+<pre><code class="language-crystal"><span class="n">1</span>.calendar_day.from_now</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hours:Float64-instance-method">
+      <div class="signature">
+        
+        def <strong>hours</strong> : Float64
+
+        <a class="method-permalink" href="#hours%3AFloat64-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns monotonic hours, including the fractional part.</p>
+<pre><code class="language-crystal"><span class="t">Duration</span>.new(hours: <span class="n">3</span>, minutes: <span class="n">30</span>).hours <span class="c"># =&gt; 3.5</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="microseconds:Float64-instance-method">
+      <div class="signature">
+        
+        def <strong>microseconds</strong> : Float64
+
+        <a class="method-permalink" href="#microseconds%3AFloat64-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns monotonic microseconds, including the fractional part.</p>
+<pre><code class="language-crystal"><span class="t">Duration</span>.new(nanoseconds: <span class="n">15_500</span>).microseconds <span class="c"># =&gt; 15.5</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="milliseconds:Float64-instance-method">
+      <div class="signature">
+        
+        def <strong>milliseconds</strong> : Float64
+
+        <a class="method-permalink" href="#milliseconds%3AFloat64-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns monotonic milliseconds, including the fractional part.</p>
+<pre><code class="language-crystal"><span class="t">Duration</span>.new(microseconds: <span class="n">15_500</span>).milliseconds <span class="c"># =&gt; 15.5</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="minutes:Float64-instance-method">
+      <div class="signature">
+        
+        def <strong>minutes</strong> : Float64
+
+        <a class="method-permalink" href="#minutes%3AFloat64-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns monotonic minutes, including the fractional part.</p>
+<pre><code class="language-crystal"><span class="t">Duration</span>.new(minutes: <span class="n">3</span>, seconds: <span class="n">30</span>).minutes <span class="c"># =&gt; 3.5</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="months:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>months</strong> : Int32
+
+        <a class="method-permalink" href="#months%3AInt32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="nanoseconds:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>nanoseconds</strong> : Int64
+
+        <a class="method-permalink" href="#nanoseconds%3AInt64-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="seconds:Float64-instance-method">
+      <div class="signature">
+        
+        def <strong>seconds</strong> : Float64
+
+        <a class="method-permalink" href="#seconds%3AFloat64-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns monotonic seconds, including the fractional part.</p>
+<pre><code class="language-crystal"><span class="t">Duration</span>.new(milliseconds: <span class="n">15_500</span>).seconds <span class="c"># =&gt; 15.5</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_month_span-instance-method">
+      <div class="signature">
+        
+        def <strong>to_month_span</strong>
+
+        <a class="method-permalink" href="#to_month_span-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Return the month portion of this <code><a href="Duration.html">Duration</a></code> as a Crystal stdlib
+<code><a href="Time/MonthSpan.html">Time::MonthSpan</a></code> instance.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_postgres(io):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>to_postgres</strong>(io) : Nil
+
+        <a class="method-permalink" href="#to_postgres%28io%29%3ANil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_postgres-instance-method">
+      <div class="signature">
+        
+        def <strong>to_postgres</strong>
+
+        <a class="method-permalink" href="#to_postgres-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_span(include_days=false)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_span</strong>(include_days = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#to_span%28include_days%3Dfalse%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Return the monotonic portion of this <code><a href="Duration.html">Duration</a></code> as a Crystal stdlib
+<code><a href="Time/Span.html">Time::Span</a></code> instance.</p>
+<p><span class="flag purple">NOTE</span>  Since the Crystal stdlib has no representation of calendar days, it is
+not currently possible to incorporate the concept of calendar days. If you
+are comfortable with approximating the number of days as 24 monotonic hours
+you can pass <code>include_days: true</code>, however keep in mind that this may return
+an incorrect value when performing arithmetic on a <code><a href="Duration.html">Duration</a></code> and a <code><a href="Time.html">Time</a></code>
+crosses a daylight savings boundary.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="weeks:Float64-instance-method">
+      <div class="signature">
+        
+        def <strong>weeks</strong> : Float64
+
+        <a class="method-permalink" href="#weeks%3AFloat64-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the number of calendar weeks represented by this <code><a href="Duration.html">Duration</a></code>, including the fractional part</p>
+<pre><code class="language-crystal"><span class="t">Duration</span>.new(days: <span class="n">45</span>).weeks <span class="c"># =&gt; 6.428571428571429</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="years:Float64-instance-method">
+      <div class="signature">
+        
+        def <strong>years</strong> : Float64
+
+        <a class="method-permalink" href="#years%3AFloat64-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the number of calendar years represented by this <code><a href="Duration.html">Duration</a></code>, including the fractional part</p>
+<pre><code class="language-crystal"><span class="t">Duration</span>.new(months: <span class="n">45</span>).years <span class="c"># =&gt; 3.75</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="zero?-instance-method">
+      <div class="signature">
+        
+        def <strong>zero?</strong>
+
+        <a class="method-permalink" href="#zero%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if this <code><a href="Duration.html">Duration</a></code> does not measure any time at all, <code>false</code>
+otherwise.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+</div>
+
+</body>
+</html>

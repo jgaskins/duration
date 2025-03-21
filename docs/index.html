@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.10.1">
+<meta name="crystal_docs.project_version" content="main-dev">
+<meta name="crystal_docs.project_name" content="duration">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="duration">
+  <title>duration main-dev</title>
+  <script type="text/javascript">
+  CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          duration
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main-dev
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="duration/Duration" data-name="duration">
+      <a href="Duration.html">Duration</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="duration/Duration/Parser" data-name="duration::parser">
+      <a href="Duration/Parser.html">Parser</a>
+      
+        <ul>
+  
+  <li class=" " data-id="duration/Duration/Parser/ISO8601" data-name="duration::parser::iso8601">
+      <a href="Duration/Parser/ISO8601.html">ISO8601</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="duration/Int" data-name="int">
+      <a href="Int.html">Int</a>
+      
+    </li>
+  
+  <li class="parent " data-id="duration/PG" data-name="pg">
+      <a href="PG.html">PG</a>
+      
+        <ul>
+  
+  <li class=" " data-id="duration/PG/Interval" data-name="pg::interval">
+      <a href="PG/Interval.html">Interval</a>
+      
+    </li>
+  
+  <li class=" " data-id="duration/PG/ResultSet" data-name="pg::resultset">
+      <a href="PG/ResultSet.html">ResultSet</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="duration/Time" data-name="time">
+      <a href="Time.html">Time</a>
+      
+        <ul>
+  
+  <li class=" " data-id="duration/Time/MonthSpan" data-name="time::monthspan">
+      <a href="Time/MonthSpan.html">MonthSpan</a>
+      
+    </li>
+  
+  <li class=" " data-id="duration/Time/Span" data-name="time::span">
+      <a href="Time/Span.html">Span</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1><a id="duration" class="anchor" href="#duration">  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Duration</h1>
+<p>This shard allows you to represent both monotonic and calendar durations in a single struct.</p>
+<p>The three ways to track durations of time with the <code><a href="Duration.html">Duration</a></code> type are:</p>
+<ol>
+<li>Calendar Months</li>
+<li>Calendar Days</li>
+<li>Monotonic time with nanosecond precision</li>
+</ol>
+<h3><a id="calendar-months" class="anchor" href="#calendar-months">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Calendar Months</h3>
+<p>Months can be anywhere from 28-31 days. Tracking calendar months with <code><a href="Duration.html">Duration</a></code> is similar to the <code><a href="Time/MonthSpan.html">Time::MonthSpan</a></code> in the Crystal stdlib, but with extra functionality.</p>
+<h3><a id="calendar-days" class="anchor" href="#calendar-days">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Calendar days</h3>
+<p>It's easy to think of a day as 24 hours, but due to Daylight Savings Time, days can be anywhere from 23-25 hours long. <code><a href="Duration.html">Duration</a></code> is great for when you need to measure things in calendar days and not necessarily 24-hour chunks.</p>
+<h3><a id="monotonic-time" class="anchor" href="#monotonic-time">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Monotonic time</h3>
+<p>Monotonic time is what the Crystal stdlib <code><a href="Time/Span.html">Time::Span</a></code> measures. <code><a href="Duration.html">Duration</a></code> doesn't have the same capacity as <code><a href="Time/Span.html">Time::Span</a></code>, but it still gives you about 300 years of monotonic time to play with.</p>
+<h2><a id="installation" class="anchor" href="#installation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Installation</h2>
+<ol>
+<li>
+<p>Add the dependency to your <code>shard.yml</code>:</p>
+<pre><code class="language-yaml">dependencies:
+  duration:
+    github: jgaskins/duration</code></pre>
+</li>
+<li>
+<p>Run <code>shards install</code></p>
+</li>
+</ol>
+<h2><a id="usage" class="anchor" href="#usage">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Usage</h2>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;duration&quot;</span>
+
+duration <span class="o">=</span> <span class="t">Duration</span>.new(months: <span class="n">12</span>, days: <span class="n">34</span>, nanoseconds: <span class="n">5678</span>)
+
+years <span class="o">=</span> <span class="t">Duration</span>.new(years: <span class="n">3</span>)
+years <span class="o">=</span> <span class="n">3</span>.calendar_years
+
+months <span class="o">=</span> <span class="t">Duration</span>.new(months: <span class="n">6</span>)
+months <span class="o">=</span> <span class="n">6</span>.calendar_months
+
+weeks <span class="o">=</span> <span class="t">Duration</span>.new(weeks: <span class="n">3</span>)
+weeks <span class="o">=</span> <span class="n">3</span>.calendar_weeks
+
+days <span class="o">=</span> <span class="t">Duration</span>.new(days: <span class="n">20</span>)
+days <span class="o">=</span> <span class="n">20</span>.calendar_days
+
+monotonic <span class="o">=</span> <span class="t">Duration</span>.new(hours: <span class="n">6</span>, minutes: <span class="n">35</span>, seconds: <span class="n">10</span>)</code></pre>
+<p>Monotonic durations don't have a method you can add onto <code>Number</code> like the calendar units do, but you can use methods that generate <code><a href="Time/Span.html">Time::Span</a></code> instances and then call <code>to_duration</code> on them:</p>
+<pre><code class="language-crystal">duration <span class="o">=</span> <span class="n">1</span>.hour.to_duration</code></pre>
+<p>You can also convert the monotonic portion of a <code><a href="Duration.html">Duration</a></code> instance to a <code><a href="Time/Span.html">Time::Span</a></code>:</p>
+<pre><code class="language-crystal">span <span class="o">=</span> <span class="t">Duration</span>.new(hours: <span class="n">3</span>).to_span</code></pre>
+<blockquote>
+<p>[!IMPORTANT]
+Only the monotonic portion (the value returned by <code>nanoseconds</code>) is used in this conversion. <code><a href="Time/Span.html">Time::Span</a></code> does not have a way to measure calendar days. If you would like to consider calendar days as 24-hour increments, you will need to pass <code>include_days: true</code>. Days are not included by default because they are not guaranteed to be 24 hours, for example across DST boundaries.</p>
+</blockquote>
+<pre><code class="language-crystal">duration <span class="o">=</span> <span class="t">Duration</span>.new(days: <span class="n">2</span>, hours: <span class="n">3</span>)
+
+span <span class="o">=</span> duration.to_span(include_days: <span class="n">true</span>)</code></pre>
+<p>Time math is also supported:</p>
+<pre><code class="language-crystal"><span class="t">Time</span>.utc <span class="o">+</span> <span class="t">Duration</span>.new(years: <span class="n">1</span>, months: <span class="n">4</span>, weeks: <span class="n">6</span>, days: <span class="n">3</span>, hours: <span class="n">12</span>, minutes: <span class="n">34</span>, seconds: <span class="n">56</span>)</code></pre>
+<h3><a id="using-with-postgres" class="anchor" href="#using-with-postgres">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Using with Postgres</h3>
+<p>You can also decode <code><a href="Duration.html">Duration</a></code> instances from Postgres directly. Let's say you have a model for subscriptions, which can have variable durations:</p>
+<pre><code class="language-crystal"><span class="c"># Load the Postgres integration</span>
+<span class="k">require</span> <span class="s">&quot;duration/pg&quot;</span>
+
+<span class="k">struct</span> <span class="t">Subscription</span>
+  <span class="k">include</span> <span class="t">DB</span><span class="t">::</span><span class="t">Serializable</span>
+
+  getter id : <span class="t">UUID</span>
+  <span class="c"># Using a Duration type defined by this shard.</span>
+  getter duration : <span class="t">Duration</span>
+<span class="k">end</span></code></pre>
+<p>Now we can query our table and return <code><a href="Duration.html">Duration</a></code> instances without a <code>@[DB::Field]</code> annotation with a <code>converter</code>.</p>
+<pre><code class="language-crystal"><span class="c"># Connect to Postgres</span>
+pg <span class="o">=</span> <span class="t">DB</span>.open(<span class="s">&quot;postgres:///&quot;</span>)
+
+<span class="c"># Return a result set with a UUID and an INTERVAL type</span>
+sql <span class="o">=</span> <span class="s">&lt;&lt;-SQL</span>
+<span class="s">  SELECT
+    gen_random_uuid() AS id,
+    &#39;1 month&#39;::interval AS duration
+  FROM generate_series(1, 2)
+  SQL</span>
+
+<span class="c"># When we iterate over our results, we&#39;ll get our Subscription struct above.</span>
+pg.query_each sql <span class="k">do</span> <span class="o">|</span>rs<span class="o">|</span>
+  pp <span class="t">Subscription</span>.new rs
+<span class="k">end</span></code></pre>
+<h2><a id="contributing" class="anchor" href="#contributing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributing</h2>
+<ol>
+<li>Fork it (<a href="https://github.com/jgaskins/duration/fork">https://github.com/jgaskins/duration/fork</a>)</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create a new Pull Request</li>
+</ol>
+<h2><a id="contributors" class="anchor" href="#contributors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributors</h2>
+<ul>
+<li><a href="https://github.com/jgaskins">Jamie Gaskins</a> - creator and maintainer</li>
+</ul>
+</div>
+</body>
+</html>
