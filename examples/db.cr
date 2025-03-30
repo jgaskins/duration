@@ -12,8 +12,6 @@ struct Subscription
   getter duration : Duration
 end
 
-require "benchmark"
-
 sql = <<-SQL
   SELECT
     gen_random_uuid() AS id,
