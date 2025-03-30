@@ -42,7 +42,7 @@ struct Duration
     new(month_span) + new(span)
   end
 
-  # Parse [ISO8601 duration strings](https://en.wikipedia.org/wiki/ISO_8601#Durations) 
+  # Parse [ISO8601 duration strings](https://en.wikipedia.org/wiki/ISO_8601#Durations)
   # like `"P3Y6M4DT12H30M5S"` into `Duration` instances.
   #
   # ```
