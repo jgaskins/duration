@@ -260,6 +260,34 @@ struct Duration
   def to_month_span
     months.months
   end
+
+  # Output an ISO8601 representation of this `Duration` to the given `IO`
+  def to_iso8601 : String
+    String.build { |str| to_iso8601 str }
+  end
+
+  def to_iso8601(io : IO) : Nil
+    io << "P"
+    if months > 0
+      years, months = self.months.divmod 12
+      io << years << 'Y' if years > 0
+      io << months << 'M' if months > 0
+    end
+    io << days << 'D' if days > 0
+    if nanoseconds > 0
+      io << 'T'
+      minutes, nanoseconds = self.nanoseconds.divmod 60_000_000_000i64
+      hours, minutes = minutes.divmod 60
+      seconds = nanoseconds / 1_000_000_000
+      int_seconds = seconds.to_i64
+      if seconds == int_seconds
+        seconds = int_seconds
+      end
+      io << hours << 'H' if hours > 0
+      io << minutes << 'M' if minutes > 0
+      io << seconds << 'S' if seconds > 0
+    end
+  end
 end
 
 struct Time

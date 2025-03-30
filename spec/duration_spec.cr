@@ -212,6 +212,28 @@ describe Duration do
       end
     end
   end
+
+  describe "converting to ISO8601 strings" do
+    {
+      Duration.new(microseconds: 1192)  => "PT0.001192S",
+      Duration.new(days: 23, hours: 23) => "P23DT23H",
+      Duration.new(years: 4)            => "P4Y",
+      Duration.new(milliseconds: 500)   => "PT0.5S",
+      Duration.new(days: 1, hours: 12)  => "P1DT12H",
+      Duration.new(
+        years: 3,
+        months: 6,
+        days: 4,
+        hours: 12,
+        minutes: 30,
+        seconds: 5,
+      ) => "P3Y6M4DT12H30M5S",
+    }.each do |duration, string|
+      it "emits #{duration} as #{string.inspect}" do
+        duration.to_iso8601.should eq string
+      end
+    end
+  end
 end
 
 def be_within(epsilon, of value)
