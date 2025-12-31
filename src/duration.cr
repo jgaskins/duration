@@ -288,6 +288,12 @@ struct Duration
       io << seconds << 'S' if seconds > 0
     end
   end
+
+  def sign
+    return months.sign unless months.zero?
+    return days.sign unless days.zero?
+    nanoseconds.sign
+  end
 end
 
 struct Time

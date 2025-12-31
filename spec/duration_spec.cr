@@ -234,6 +234,16 @@ describe Duration do
       end
     end
   end
+
+  it "returns the sign of the Duration" do
+    -1.calendar_month.sign.should eq -1
+    -1.calendar_day.sign.should eq -1
+    -1.second.to_duration.sign.should eq -1
+    0.seconds.to_duration.sign.should eq 0
+    1.second.to_duration.sign.should eq 1
+    1.calendar_day.sign.should eq 1
+    1.calendar_month.sign.should eq 1
+  end
 end
 
 def be_within(epsilon, of value)
