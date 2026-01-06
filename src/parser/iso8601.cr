@@ -99,7 +99,7 @@ struct Duration
           # Seconds may be fractional.
           tot = var.to_f64 + fraction
           seconds = var.to_i64
-          nanoseconds = (fraction * 1_000_000_000).to_i64
+          nanoseconds = (fraction * 1_000_000_000).round.to_i64
           var = 0; fraction = 0.0; in_fraction = false; fraction_div = 1.0
         else
           raise ArgumentError.new("Invalid character '#{c.chr}' in ISO8601 duration")
