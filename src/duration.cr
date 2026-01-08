@@ -183,6 +183,10 @@ struct Duration
     )
   end
 
+  def - : self
+    self * -1
+  end
+
   # Multiplies this `Duration` by the given factor.
   def *(factor : Int) : self
     self.class.new(

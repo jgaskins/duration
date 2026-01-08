@@ -247,6 +247,10 @@ describe Duration do
     1.calendar_day.sign.should eq 1
     1.calendar_month.sign.should eq 1
   end
+
+  it "negates the Duration" do
+    (-Duration.new(days: 1)).should eq -1.calendar_day
+  end
 end
 
 def be_within(epsilon, of value)
