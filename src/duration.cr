@@ -42,6 +42,34 @@ struct Duration
     new(month_span) + new(span)
   end
 
+  def self.between(earlier : Time, later : Time) : self
+    later = later.in(earlier.location)
+    months = later.month - earlier.month + 12 * (later.year - earlier.year)
+    days = later.day - earlier.day
+
+    # Use a single value for hours, minutes, seconds, and nanoseconds to get
+    # borrow/carry between each unit automatically.
+    earlier_time_ns = earlier.hour.to_i64 * 3_600_000_000_000_i64 +
+                      earlier.minute.to_i64 * 60_000_000_000_i64 +
+                      earlier.second.to_i64 * 1_000_000_000_i64 +
+                      earlier.nanosecond
+    later_time_ns = later.hour.to_i64 * 3_600_000_000_000_i64 +
+                    later.minute.to_i64 * 60_000_000_000_i64 +
+                    later.second.to_i64 * 1_000_000_000_i64 +
+                    later.nanosecond
+    nanoseconds = later_time_ns - earlier_time_ns
+
+    if days.negative?
+      days += Time.days_in_month(earlier.year, earlier.month)
+    end
+
+    new(
+      months: months,
+      days: days,
+      nanoseconds: nanoseconds.abs,
+    )
+  end
+
   # Parse [ISO8601 duration strings](https://en.wikipedia.org/wiki/ISO_8601#Durations)
   # like `"P3Y6M4DT12H30M5S"` into `Duration` instances.
   #

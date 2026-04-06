@@ -4,6 +4,7 @@ describe Duration do
   # Just to have a single place we're loading from. It's too tedious to keep
   # writing this.
   eastern = Time::Location.load("America/New_York")
+  pacific = Time::Location.load("America/Los_Angeles")
 
   it "measures nanoseconds" do
     Duration.new(nanoseconds: 123).nanoseconds.should eq 123
@@ -148,9 +149,81 @@ describe Duration do
       (time + Duration.new(days: 1)).should eq Time.local(2025, 3, 10, location: eastern)
     end
 
-    it "adds a duration with calendar months" do
+    it "adds a Duration with calendar months" do
       # Add a calendar month, which returns the same time on the same day of the next month.
       (time + Duration.new(months: 1)).should eq Time.local(2025, 4, 9, location: eastern)
+    end
+
+    describe "calculating between two points in time" do
+      it "calculates the Duration between two points in time" do
+        earlier = Time.utc(
+          2024, 1, 2,
+          3, 4, 43, nanosecond: 123_450_000)
+        later = Time.utc(
+          2026, 4, 6,
+          21, 32, 56, nanosecond: 456_789_000)
+
+        duration = Duration.between(earlier, later)
+
+        duration.should be_a Duration
+        duration.should eq Duration.new(
+          years: 2,                 # 2024->2026
+          months: 3,                # January->April
+          days: 4,                  # 2->6
+          hours: 18,                # 3am->9pm
+          minutes: 28,              # 4->32
+          seconds: 13,              # 43->56
+          nanoseconds: 333_339_000, # .12345->.456789
+        )
+      end
+
+      it "calculates the Duration when month/day boundaries are crossed" do
+        earlier = Time.utc(
+          2024, 4, 6,
+          21, 32, 56, nanosecond: 456_789_000)
+        later = Time.utc(
+          2026, 1, 2,
+          3, 4, 43, nanosecond: 123_450_000)
+
+        duration = Duration.between(earlier, later)
+
+        duration.should be_a Duration
+        duration.should eq Duration.new(
+          years: 1,                 # 2024->2026
+          months: 9,                # April->January
+          days: 26,                 # 6->2 (starting from a 30-day month)
+          hours: 18,                # 9pm->3am
+          minutes: 28,              # 32->4
+          seconds: 13,              # 56->43
+          nanoseconds: 333_339_000, # .456789->.12345
+        )
+      end
+
+      it "calculates the duration in different time zones" do
+        earlier = Time.local(
+          2024, 4, 6,
+          21, 32, 56, nanosecond: 456_789_000,
+          location: eastern,
+        )
+        later = Time.local(
+          2026, 1, 2,
+          3, 4, 43, nanosecond: 123_450_000,
+          location: pacific,
+        )
+
+        duration = Duration.between(earlier, later)
+
+        duration.should be_a Duration
+        duration.should eq Duration.new(
+          years: 1,                 # 2024->2026
+          months: 9,                # April->January
+          days: 26,                 # 6->2 (starting from a 30-day month)
+          hours: 15,                # 9pm->3am
+          minutes: 28,              # 32->4
+          seconds: 13,              # 56->43
+          nanoseconds: 333_339_000, # .456789->.12345
+        )
+      end
     end
   end
 
