@@ -61,12 +61,16 @@ struct Duration
 
     if days.negative?
       days += Time.days_in_month(earlier.year, earlier.month)
+      nanoseconds = nanoseconds.abs
+    elsif nanoseconds.negative?
+      nanoseconds += 24_i64 * 3_600_000_000_000_i64
+      days -= 1
     end
 
     new(
       months: months,
       days: days,
-      nanoseconds: nanoseconds.abs,
+      nanoseconds: nanoseconds,
     )
   end
 

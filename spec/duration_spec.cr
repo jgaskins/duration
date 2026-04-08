@@ -177,6 +177,19 @@ describe Duration do
         )
       end
 
+      it "calculates the Duration between two points in time that are just under a day" do
+        earlier = Time.utc.at_beginning_of_day + 12.hours
+        later = earlier + 1.calendar_day - 1.second
+
+        duration = Duration.between(earlier, later)
+
+        duration.should eq Duration.new(
+          hours: 23,
+          minutes: 59,
+          seconds: 59,
+        )
+      end
+
       it "calculates the Duration when month/day boundaries are crossed" do
         earlier = Time.utc(
           2024, 4, 6,
