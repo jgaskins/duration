@@ -190,6 +190,28 @@ describe Duration do
         )
       end
 
+      it "calculates the Duration between two points in time that are just under a day, crossing a DST boundary" do
+        # DST 2026 began on March 8
+        earlier = Time.local(
+          year: 2026,
+          month: 3,
+          day: 7,
+          hour: 20,
+          location: eastern,
+        )
+        later = earlier + 1.calendar_day - 1.second
+
+        duration = Duration.between(earlier, later)
+
+        # Only just under 23 hours in between these two timestamps because the
+        # hour between 2am-3am on March 8, 2026 is skipped.
+        duration.should eq Duration.new(
+          hours: 22,
+          minutes: 59,
+          seconds: 59,
+        )
+      end
+
       it "calculates the Duration when month/day boundaries are crossed" do
         earlier = Time.utc(
           2024, 4, 6,
