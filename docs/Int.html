@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Crystal Docs 1.10.1">
+<meta name="generator" content="Crystal Docs 1.18.2">
 <meta name="crystal_docs.project_version" content="main-dev">
 <meta name="crystal_docs.project_name" content="duration">
 
@@ -136,7 +136,9 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">abstract struct</span> Int
+  <span class="kind">
+    abstract struct
+  </span> Int
 
 </h1>
 
@@ -156,24 +158,27 @@
   </h2>
 
   <p>Int is the base type of all integer types.</p>
-<p>There are four signed integer types: <code>Int8</code>, <code>Int16</code>, <code>Int32</code> and <code>Int64</code>,
-being able to represent numbers of 8, 16, 32 and 64 bits respectively.
-There are four unsigned integer types: <code>UInt8</code>, <code>UInt16</code>, <code>UInt32</code> and <code>UInt64</code>.</p>
+<p>There are five signed integer types: <code>Int8</code>, <code>Int16</code>, <code>Int32</code>, <code>Int64</code> and
+<code>Int128</code>, being able to represent numbers of 8, 16, 32, 64, and 128 bits respectively.
+There are five unsigned integer types: <code>UInt8</code>, <code>UInt16</code>, <code>UInt32</code>, <code>UInt64</code>
+and `UInt128.</p>
 <p>An integer literal is an optional <code>+</code> or <code>-</code> sign, followed by
 a sequence of digits and underscores, optionally followed by a suffix.
 If no suffix is present, the literal's type is <code>Int32</code>, or <code>Int64</code> if the
 number doesn't fit into an <code>Int32</code>:</p>
 <pre><code class="language-crystal"><span class="n">1</span> <span class="c"># Int32</span>
 
-<span class="n">1_i8</span>  <span class="c"># Int8</span>
-<span class="n">1_i16</span> <span class="c"># Int16</span>
-<span class="n">1_i32</span> <span class="c"># Int32</span>
-<span class="n">1_i64</span> <span class="c"># Int64</span>
+<span class="n">1_i8</span>   <span class="c"># Int8</span>
+<span class="n">1_i16</span>  <span class="c"># Int16</span>
+<span class="n">1_i32</span>  <span class="c"># Int32</span>
+<span class="n">1_i64</span>  <span class="c"># Int64</span>
+<span class="n">1_i128</span> <span class="c"># Int128</span>
 
-<span class="n">1_u8</span>  <span class="c"># UInt8</span>
-<span class="n">1_u16</span> <span class="c"># UInt16</span>
-<span class="n">1_u32</span> <span class="c"># UInt32</span>
-<span class="n">1_u64</span> <span class="c"># UInt64</span>
+<span class="n">1_u8</span>   <span class="c"># UInt8</span>
+<span class="n">1_u16</span>  <span class="c"># UInt16</span>
+<span class="n">1_u32</span>  <span class="c"># UInt32</span>
+<span class="n">1_u64</span>  <span class="c"># UInt64</span>
+<span class="n">1_u128</span> <span class="c"># UInt128</span>
 
 <span class="n">+10</span> <span class="c"># Int32</span>
 <span class="n">-20</span> <span class="c"># Int32</span>
@@ -208,6 +213,8 @@ the future.</p>
 
 
 
+
+
   <h2>
     <a id="defined-in" class="anchor" href="#defined-in">
   <svg class="octicon-link" aria-hidden="true">
@@ -218,9 +225,7 @@ the future.</p>
   </h2>
   
     
-      <a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L291" target="_blank">
-        duration.cr
-      </a>
+      duration.cr
     
     <br/>
   
@@ -229,12 +234,13 @@ the future.</p>
 
 
 
+  
 
+  
 
+  
 
-
-
-
+  
   <h2>
     <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
   <svg class="octicon-link" aria-hidden="true">
@@ -305,82 +311,82 @@ the future.</p>
 
 
 
-<div class="methods-inherited">
+  <div class="methods-inherited">
+    
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+    
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+    
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+    
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+    
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+    
+  </div>
+
   
-    
-
-
-    
-
-
-    
-
-
-    
-
 
   
-    
-
-
-    
-
-
-    
-
-
-    
-
 
   
-    
-
-
-    
-
-
-    
-
-
-    
-
 
   
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
-</div>
-
-
-
-
-
-
-
-
   <h2>
     <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
   <svg class="octicon-link" aria-hidden="true">
@@ -406,8 +412,6 @@ the future.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L303" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -426,8 +430,6 @@ the future.</p>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L308" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -448,8 +450,6 @@ the future.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L323" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -468,8 +468,6 @@ the future.</p>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L328" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -490,8 +488,6 @@ the future.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L293" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -510,8 +506,6 @@ the future.</p>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L298" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -532,8 +526,6 @@ the future.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L313" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -553,11 +545,10 @@ the future.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L318" target="_blank">View source</a>]
-        
       </div>
     </div>
   
+
 
 
 </div>

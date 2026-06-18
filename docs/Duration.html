@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Crystal Docs 1.10.1">
+<meta name="generator" content="Crystal Docs 1.18.2">
 <meta name="crystal_docs.project_version" content="main-dev">
 <meta name="crystal_docs.project_name" content="duration">
 
@@ -136,7 +136,9 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Duration
+  <span class="kind">
+    struct
+  </span> Duration
 
 </h1>
 
@@ -171,6 +173,8 @@ time spans, allowing for more precise temporal math.</p>
 
 
 
+
+
   <h2>
     <a id="defined-in" class="anchor" href="#defined-in">
   <svg class="octicon-link" aria-hidden="true">
@@ -181,23 +185,17 @@ time spans, allowing for more precise temporal math.</p>
   </h2>
   
     
-      <a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L5" target="_blank">
-        duration.cr
-      </a>
+      duration.cr
     
     <br/>
   
     
-      <a href="https://github.com/jgaskins/duration/blob/main/src/parser/iso8601.cr#L1" target="_blank">
-        parser/iso8601.cr
-      </a>
+      parser/iso8601.cr
     
     <br/>
   
     
-      <a href="https://github.com/jgaskins/duration/blob/main/src/pg.cr#L6" target="_blank">
-        pg.cr
-      </a>
+      pg.cr
     
     <br/>
   
@@ -225,6 +223,7 @@ time spans, allowing for more precise temporal math.</p>
 
 
 
+  
   <h2>
     <a id="constructors" class="anchor" href="#constructors">
   <svg class="octicon-link" aria-hidden="true">
@@ -234,6 +233,11 @@ time spans, allowing for more precise temporal math.</p>
     Constructors
   </h2>
   <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#between%28earlier%3ATime%2Clater%3ATime%29%3Aself-class-method" class="signature"><strong>.between</strong>(earlier : Time, later : Time) : <span class="k">self</span></a>
+        
+      </li>
     
       <li class="entry-summary">
         <a href="#new%28month_span%3ATime%3A%3AMonthSpan%2Cspan%3ATime%3A%3ASpan%29-class-method" class="signature"><strong>.new</strong>(month_span : Time::MonthSpan, span : Time::Span)</a>
@@ -264,7 +268,7 @@ time spans, allowing for more precise temporal math.</p>
   </ul>
 
 
-
+  
   <h2>
     <a id="class-method-summary" class="anchor" href="#class-method-summary">
   <svg class="octicon-link" aria-hidden="true">
@@ -278,16 +282,16 @@ time spans, allowing for more precise temporal math.</p>
       <li class="entry-summary">
         <a href="#parse_iso8601%28string%3AString%29-class-method" class="signature"><strong>.parse_iso8601</strong>(string : String)</a>
         
-          <div class="summary"><p>Parse <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO8601 duration strings</a>  like <code>&quot;P3Y6M4DT12H30M5S&quot;</code> into <code><a href="Duration.html">Duration</a></code> instances.</p></div>
+          <div class="summary"><p>Parse <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO8601 duration strings</a> like <code>&quot;P3Y6M4DT12H30M5S&quot;</code> into <code><a href="Duration.html">Duration</a></code> instances.</p></div>
         
       </li>
     
   </ul>
 
 
+  
 
-
-
+  
   <h2>
     <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
   <svg class="octicon-link" aria-hidden="true">
@@ -330,6 +334,11 @@ time spans, allowing for more precise temporal math.</p>
         <a href="#-%28other%3Aself%29%3Aself-instance-method" class="signature"><strong>#-</strong>(other : <span class="k">self</span>) : <span class="k">self</span></a>
         
           <div class="summary"><p>Returns the difference between two <code><a href="Duration.html">Duration</a></code> instances.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#-%3Aself-instance-method" class="signature"><strong>#-</strong> : <span class="k">self</span></a>
         
       </li>
     
@@ -419,6 +428,23 @@ time spans, allowing for more precise temporal math.</p>
       </li>
     
       <li class="entry-summary">
+        <a href="#sign-instance-method" class="signature"><strong>#sign</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_iso8601%28io%3AIO%29%3ANil-instance-method" class="signature"><strong>#to_iso8601</strong>(io : IO) : Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_iso8601%3AString-instance-method" class="signature"><strong>#to_iso8601</strong> : String</a>
+        
+          <div class="summary"><p>Output an ISO8601 representation of this <code><a href="Duration.html">Duration</a></code> to the given <code>IO</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#to_month_span-instance-method" class="signature"><strong>#to_month_span</strong></a>
         
           <div class="summary"><p>Return the month portion of this <code><a href="Duration.html">Duration</a></code> as a Crystal stdlib <code><a href="Time/MonthSpan.html">Time::MonthSpan</a></code> instance.</p></div>
@@ -467,50 +493,50 @@ time spans, allowing for more precise temporal math.</p>
 
 
 
-<div class="methods-inherited">
+  <div class="methods-inherited">
+    
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+    
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+    
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+    
+  </div>
+
   
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
-</div>
-
-
   <h2>
     <a id="constructor-detail" class="anchor" href="#constructor-detail">
   <svg class="octicon-link" aria-hidden="true">
@@ -519,6 +545,20 @@ time spans, allowing for more precise temporal math.</p>
 </a>
     Constructor Detail
   </h2>
+  
+    <div class="entry-detail" id="between(earlier:Time,later:Time):self-class-method">
+      <div class="signature">
+        
+        def self.<strong>between</strong>(earlier : <a href="Time.html">Time</a>, later : <a href="Time.html">Time</a>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#between%28earlier%3ATime%2Clater%3ATime%29%3Aself-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
   
     <div class="entry-detail" id="new(month_span:Time::MonthSpan,span:Time::Span)-class-method">
       <div class="signature">
@@ -539,8 +579,6 @@ calendar days from this constructor.</p>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L41" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -563,8 +601,6 @@ calendar days from this constructor.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L18" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -586,8 +622,6 @@ calendar days from this constructor.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L28" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -602,14 +636,12 @@ calendar days from this constructor.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L59" target="_blank">View source</a>]
-        
       </div>
     </div>
   
 
 
-
+  
   <h2>
     <a id="class-method-detail" class="anchor" href="#class-method-detail">
   <svg class="octicon-link" aria-hidden="true">
@@ -640,16 +672,14 @@ like <code>&quot;P3Y6M4DT12H30M5S&quot;</code> into <code><a href="Duration.html
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L55" target="_blank">View source</a>]
-        
       </div>
     </div>
   
 
 
+  
 
-
-
+  
   <h2>
     <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
   <svg class="octicon-link" aria-hidden="true">
@@ -675,8 +705,6 @@ like <code>&quot;P3Y6M4DT12H30M5S&quot;</code> into <code><a href="Duration.html
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L187" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -698,8 +726,6 @@ like <code>&quot;P3Y6M4DT12H30M5S&quot;</code> into <code><a href="Duration.html
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L156" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -718,8 +744,6 @@ like <code>&quot;P3Y6M4DT12H30M5S&quot;</code> into <code><a href="Duration.html
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L161" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -743,8 +767,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L173" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -764,7 +786,19 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L178" target="_blank">View source</a>]
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="-:self-instance-method">
+      <div class="signature">
+        
+        def <strong>-</strong> : <span class="k">self</span>
+
+        <a class="method-permalink" href="#-%3Aself-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
         
       </div>
     </div>
@@ -784,8 +818,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L196" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -807,8 +839,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L227" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -829,8 +859,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L236" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -844,8 +872,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L9" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -867,8 +893,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L218" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -888,8 +912,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L209" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -911,8 +933,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L86" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -932,8 +952,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L122" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -955,8 +973,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L113" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -977,8 +993,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L95" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -993,8 +1007,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L8" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -1008,8 +1020,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L10" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1031,7 +1041,52 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L104" target="_blank">View source</a>]
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sign-instance-method">
+      <div class="signature">
+        
+        def <strong>sign</strong>
+
+        <a class="method-permalink" href="#sign-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_iso8601(io:IO):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>to_iso8601</strong>(io : IO) : Nil
+
+        <a class="method-permalink" href="#to_iso8601%28io%3AIO%29%3ANil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_iso8601:String-instance-method">
+      <div class="signature">
+        
+        def <strong>to_iso8601</strong> : String
+
+        <a class="method-permalink" href="#to_iso8601%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Output an ISO8601 representation of this <code><a href="Duration.html">Duration</a></code> to the given <code>IO</code></p>
+        </div>
+      
+      <br/>
+      <div>
         
       </div>
     </div>
@@ -1053,8 +1108,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L260" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -1069,8 +1122,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/pg.cr#L11" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -1084,8 +1135,6 @@ subtracted from the <code><a href="Duration.html#months%3AInt32-instance-method"
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/pg.cr#L7" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1113,8 +1162,6 @@ crosses a daylight savings boundary.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L249" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -1134,8 +1181,6 @@ crosses a daylight savings boundary.</p>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L131" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1157,8 +1202,6 @@ crosses a daylight savings boundary.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L140" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -1179,11 +1222,10 @@ otherwise.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/jgaskins/duration/blob/main/src/duration.cr#L146" target="_blank">View source</a>]
-        
       </div>
     </div>
   
+
 
 
 </div>
