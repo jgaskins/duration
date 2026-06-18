@@ -16,6 +16,25 @@ Months can be anywhere from 28-31 days. Tracking calendar months with `Duration`
 
 It's easy to think of a day as 24 hours, but due to Daylight Savings Time, days can be anywhere from 23-25 hours long. `Duration` is great for when you need to measure things in calendar days and not necessarily 24-hour chunks.
 
+For example, adding `1.day` to a timestamp that crosses a DST boundary gives you a different time the following day due to the time change. But adding a `Duration` gives you the same time the following day, already accounting for the time change.
+
+```
+require "duration"
+
+timestamp = Time.local(
+  year: 2026,
+  month: 3,
+  day: 8,
+  location: Time::Location.load("America/New_York"),
+)
+
+pp! timestamp                  # => 2026-03-08 00:00:00-05:00[America/New_York]
+pp! timestamp + 1.day          # => 2026-03-09 01:00:00-04:00[America/New_York]
+pp! timestamp + 1.calendar_day # => 2026-03-09 00:00:00-04:00[America/New_York]
+```
+
+See [the "Usage" section](#usage) for more information on the `calendar_day` method.
+
 ### Monotonic time
 
 Monotonic time is what the Crystal stdlib `Time::Span` measures. `Duration` doesn't have the same capacity as `Time::Span`, but it still gives you about 300 years of monotonic time to play with.
