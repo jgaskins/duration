@@ -42,6 +42,18 @@ struct Duration
     new(month_span) + new(span)
   end
 
+  # Get the `Duration` between `earlier` and `later`. This doesn't just return
+  # the nanoseconds-based time between the two timestamps the way that
+  # `latest - earliest` does. Instead, it calculates how many months and days
+  # are also in between, then takes the nanoseconds.
+  #
+  # ```
+  # now = Time.utc
+  # before = now - 1.month
+  #
+  # duration = Duration.between(before, now)
+  # # => Duration(@months=1, @days=0, @nanoseconds=0)
+  # ```
   def self.between(earlier : Time, later : Time) : self
     later = later.in(earlier.location)
     months = later.month - earlier.month + 12 * (later.year - earlier.year)

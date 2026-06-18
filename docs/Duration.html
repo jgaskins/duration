@@ -237,6 +237,8 @@ time spans, allowing for more precise temporal math.</p>
       <li class="entry-summary">
         <a href="#between%28earlier%3ATime%2Clater%3ATime%29%3Aself-class-method" class="signature"><strong>.between</strong>(earlier : Time, later : Time) : <span class="k">self</span></a>
         
+          <div class="summary"><p>Get the <code><a href="Duration.html">Duration</a></code> between <code>earlier</code> and <code>later</code>.</p></div>
+        
       </li>
     
       <li class="entry-summary">
@@ -553,6 +555,19 @@ time spans, allowing for more precise temporal math.</p>
 
         <a class="method-permalink" href="#between%28earlier%3ATime%2Clater%3ATime%29%3Aself-class-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Get the <code><a href="Duration.html">Duration</a></code> between <code>earlier</code> and <code>later</code>. This doesn't just return
+the nanoseconds-based time between the two timestamps the way that
+<code>latest - earliest</code> does. Instead, it calculates how many months and days
+are also in between, then takes the nanoseconds.</p>
+<pre><code class="language-crystal">now <span class="o">=</span> <span class="t">Time</span>.utc
+before <span class="o">=</span> now <span class="o">-</span> <span class="n">1</span>.month
+
+duration <span class="o">=</span> <span class="t">Duration</span>.between(before, now)
+<span class="c"># =&gt; Duration(@months=1, @days=0, @nanoseconds=0)</span></code></pre>
+        </div>
       
       <br/>
       <div>
